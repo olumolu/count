@@ -2,5 +2,5 @@
 <code>
 gcc count_loc.c -o count_loc
 run
-./count_loc
+// ./count_loc
 <\code>
