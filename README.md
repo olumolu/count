@@ -32,12 +32,12 @@ rustc lcounter.rs
 ./lcounter
 ```
 
-**Count Rust Lines**
--------------------
+**Count Rust Lines only**
+-------------------------
 
 ### countrust.c
-This is only dor knowing how much rust code is there in a perticular project.
-Count Rust lines of code in a given repository.
+This is only for knowing how much rust code is there in a perticular project.
+Count Rust lines of code in a given repository. this is mainly for knowing for each release of linux kernel how much rust code is incorporated.
 
 ### Compile and Run
 ```bash
