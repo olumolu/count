@@ -195,36 +195,45 @@ void clone_repo(const char *repo_url, const char *dest_dir) {
 }
 
 int main() {
-    char repo_url[MAX_REPO_URL_LENGTH];
-    printf("Enter the repository URL: ");
-    if (scanf("%255s", repo_url) != 1) {
-        fprintf(stderr, "Failed to read repository URL\n");
+    char input[MAX_PATH_LENGTH];
+    printf("Enter the repository URL or directory path: ");
+    if (scanf("%1023s", input) != 1) {
+        fprintf(stderr, "Failed to read input\n");
         return 1;
     }
 
-    if (repo_url == NULL) {
+    if (input == NULL) {
         return 1;
     }
 
-    const char *temp_dir = "/tmp/repo_clone";
-    if (mkdir(temp_dir, 0777) && errno != EEXIST) {
-        perror("mkdir");
-        return 1;
-    }
+    if (strstr(input, "http://") == input || strstr(input, "https://") == input || strstr(input, "git@") == input) {
+        const char *temp_dir = "/tmp/repo_clone";
+        if (mkdir(temp_dir, 0777) && errno != EEXIST) {
+            perror("mkdir");
+            return 1;
+        }
 
-    clone_repo(repo_url, temp_dir);
+        clone_repo(input, temp_dir);
 
-    int total_with_comments = 0;
-    int total_without_comments = 0;
-    traverse_repo(temp_dir, &total_with_comments, &total_without_comments);
+        int total_with_comments = 0;
+        int total_without_comments = 0;
+        traverse_repo(temp_dir, &total_with_comments, &total_without_comments);
 
-    printf("Lines of code with comments: %d\n", total_with_comments);
-    printf("Lines of code without comments: %d\n", total_without_comments);
+        printf("Lines of code with comments: %d\n", total_with_comments);
+        printf("Lines of code without comments: %d\n", total_without_comments);
 
-    char command[MAX_PATH_LENGTH];
-    snprintf(command, sizeof(command), "rm -rf %s", temp_dir);
-    if (system(command) != 0) {
-        fprintf(stderr, "Failed to remove temporary directory: %s\n", command);
+        char command[MAX_PATH_LENGTH];
+        snprintf(command, sizeof(command), "rm -rf %s", temp_dir);
+        if (system(command) != 0) {
+            fprintf(stderr, "Failed to remove temporary directory: %s\n", command);
+        }
+    } else {
+        int total_with_comments = 0;
+        int total_without_comments = 0;
+        traverse_repo(input, &total_with_comments, &total_without_comments);
+
+        printf("Lines of code with comments: %d\n", total_with_comments);
+        printf("Lines of code without comments: %d\n", total_without_comments);
     }
 
     return 0;
