@@ -4,3 +4,6 @@
 <code>gcc count_loc.c -o count_loc<\code>
 ## run
 <code>./count_loc<\code>
+for rust one
+rustc lcounter.rs
+./lcounter
