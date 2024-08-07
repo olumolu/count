@@ -1,17 +1,4 @@
 # count lines
-### get no of lines in open-source project such as linux kernel or other like some random software and stuff.
-## compile
-<code>gcc count_loc.c -o count_loc<\code>
-## run
-<code>./count_loc<\code>
-for rust one
-rustc lcounter.rs
-./lcounter
-countrust.c
-can count a program have how much rust written lines of code.
-
-
-**Count Lines of Code in Open-Source Projects**
 =====================================================
 
 **Introduction**
@@ -49,7 +36,7 @@ rustc lcounter.rs
 -------------------
 
 ### countrust.c
-
+This is only dor knowing how much rust code is there in a perticular project.
 Count Rust lines of code in a given repository.
 
 ### Compile and Run
