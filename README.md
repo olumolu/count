@@ -22,14 +22,14 @@ gcc count_loc.c -o count_loc
 **Rust Version**
 --------------
 
-### lcounter.rs
+### ncount.rs
 
 Count lines of code in a given repository.
 
 ### Compile and Run
 ```bash
-rustc lcounter.rs
-./lcounter
+rustc ncount.rs
+./ncount
 ```
 
 **Count Rust Lines only**
@@ -49,12 +49,6 @@ gcc countrust.c -o countrust
 -----
 
 1. Clone the repository you want to count lines of code for.
-2. Run the corresponding executable (e.g. `./count_loc`, `./lcounter`, or `./countrust`).
+2. Run the corresponding executable (e.g. `./count_loc`, `./ncount`, or `./countrust`).
 3. Enter the path to the repository when prompted.
 4. The total number of lines of code will be displayed.
-
-**Note**
-----
-
-* Make sure to replace the `count_loc.c`, `lcounter.rs`, and `countrust.c` files with the actual code.
-* This code is for demonstration purposes only and may not work for all repositories or file types.
