@@ -6,9 +6,6 @@
 
 This code counts the total number of lines of code in a given open-source project. It can be used to count lines of code in projects such as the Linux kernel or other software repositories.
 
-**C Version**
--------------
-
 ### count_loc.c
 
 Count lines of code in a given repository.
@@ -17,19 +14,6 @@ Count lines of code in a given repository.
 ```bash
 gcc count_loc.c -o count_loc
 ./count_loc
-```
-
-**Rust Version**
---------------
-
-### ncount.rs
-
-Count lines of code in a given repository.
-
-### Compile and Run
-```bash
-rustc ncount.rs
-./ncount
 ```
 
 **Count Rust Lines only**
@@ -49,6 +33,6 @@ gcc countrust.c -o countrust
 -----
 
 1. Clone the repository you want to count lines of code for.
-2. Run the corresponding executable (e.g. `./count_loc`, `./ncount`, or `./countrust`).
+2. Run the corresponding executable
 3. Enter the path to the repository when prompted.
 4. The total number of lines of code will be displayed.
